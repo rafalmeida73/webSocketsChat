@@ -26,7 +26,7 @@ const route = Router()
 app.use(express.json())
 
 route.get('/', (req: Request, res: Response) => {
-  res.render("index.html")
+  res.render("/index.html")
 })
 
 app.use(route)

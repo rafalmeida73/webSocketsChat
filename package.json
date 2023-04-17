@@ -2,9 +2,11 @@
   "name": "sockets_pdi",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon src/index.ts"
+  "main": "dist/index.js",
+    "scripts": {
+    "dev": "nodemon src/index.ts",
+    "start": "node dist/index.js",
+    "postinstall": "tsc"
   },
   "keywords": [],
   "author": "",

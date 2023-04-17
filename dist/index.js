@@ -11,6 +11,7 @@ const express_2 = require("express");
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.static(__dirname + "/public"));
+app.set('view engine', 'html');
 const server = http_1.default.createServer(app);
 const io = new socket_io_1.Server(server);
 io.on("connection", (socket) => {
@@ -22,8 +23,9 @@ io.on("connection", (socket) => {
 const route = (0, express_2.Router)();
 app.use(express_1.default.json());
 route.get('/', (req, res) => {
-    res.render("index.html");
+    res.render("index");
 });
 app.use(route);
-server.listen(3333, () => 'server running on port 3333');
+const port = process.env.PORT || 3333;
+server.listen(port, () => 'server running on port 3333');
 //# sourceMappingURL=index.js.map
