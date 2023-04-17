@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "yarn && nodemon src/index.ts",
-    "start": "ts-node-esm src/index.ts"
+    "build": "ts-node-esm src/index.ts"
   },
   "keywords": [],
   "author": "",
