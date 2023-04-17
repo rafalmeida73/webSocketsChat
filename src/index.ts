@@ -30,6 +30,6 @@ route.get('/', (req: Request, res: Response) => {
 })
 
 app.use(route)
+const port = process.env.PORT || 3333
 
-
-server.listen(3333, () => 'server running on port 3333')
+server.listen(port, () => 'server running on port 3333')
