@@ -8,7 +8,7 @@
     <style>
       .content {
         min-height: 90vh;
-        padding:  20px;
+        padding: 20px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -19,7 +19,7 @@
       }
 
       main {
-        height: 55vh;
+        height: 50vh;
         overflow: auto;
       }
 
@@ -35,6 +35,12 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+      }
+
+      @media (min-width: 768px) {
+        main {
+          height: 55vh;
+        }
       }
     </style>
     <link
@@ -121,7 +127,11 @@
             required
           ></textarea>
 
-          <button class="btn btn-success w-100 mt-3" type="submit" onclick="send()">
+          <button
+            class="btn btn-success w-100 mt-3"
+            type="submit"
+            onclick="send()"
+          >
             Enviar
           </button>
         </div>
