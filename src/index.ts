@@ -7,7 +7,7 @@ import { Router, Request, Response } from 'express';
 
 const app = express();
 app.use(cors())
-
+app.engine('html', require('ejs').renderFile);
 app.use(express.static(__dirname + "/public"));
 const server = http.createServer(app);
 
@@ -26,7 +26,7 @@ const route = Router()
 app.use(express.json())
 
 route.get('/', (req: Request, res: Response) => {
-  res.render("/index.html")
+  res.render("index.html")
 })
 
 app.use(route)

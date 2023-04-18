@@ -1,26 +1,26 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const http_1 = __importDefault(require("http"));
-const socket_io_1 = require("socket.io");
-const express_2 = require("express");
-const app = (0, express_1.default)();
+var express_1 = require("express");
+var http_1 = require("http");
+var socket_io_1 = require("socket.io");
+var cors_1 = require("cors");
+var express_2 = require("express");
+var app = (0, express_1.default)();
+app.use((0, cors_1.default)());
 app.use(express_1.default.static(__dirname + "/public"));
-const server = http_1.default.createServer(app);
-const io = new socket_io_1.Server(server);
-io.on("connection", (socket) => {
+var server = http_1.default.createServer(app);
+var io = new socket_io_1.Server(server);
+io.on("connection", function (socket) {
     io.to(socket.id).emit("Message:", "You are connected");
-    socket.on("message", (data) => {
+    socket.on("message", function (data) {
         socket.broadcast.emit("message", data);
     });
 });
-const route = (0, express_2.Router)();
+var route = (0, express_2.Router)();
 app.use(express_1.default.json());
-route.get('/', (req, res) => {
-    res.render("index.html");
+route.get('/', function (req, res) {
+    res.render("/index.html");
 });
 app.use(route);
-server.listen(3333, () => 'server running on port 3333');
+var port = process.env.PORT || 3333;
+server.listen(port, function () { return 'server running on port 3333'; });
