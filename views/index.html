@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rafael's Chat</title>
     <style>
-      .container {
-        min-height: 100vh;
+      .content {
+        min-height: 90vh;
+        padding:  20px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        justify-content: center;
       }
 
       header {
@@ -24,10 +24,17 @@
       }
 
       .card-footer {
+        background: #fff;
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 5;
         height: 20vh;
+        padding: 0.31rem;
         display: flex;
-        justify-content: center;
         flex-direction: column;
+        justify-content: center;
       }
     </style>
     <link
@@ -67,8 +74,10 @@
       };
 
       const send = () => {
-       if(!document.getElementById("user").value) return alert("Informe o usuário")
-       if(!document.getElementById("message").value) return alert("Informe a mensagem")
+        if (!document.getElementById("user").value)
+          return alert("Informe o usuário");
+        if (!document.getElementById("message").value)
+          return alert("Informe a mensagem");
 
         const user = document.getElementById("user").value;
         const message = document.getElementById("message").value;
@@ -82,15 +91,21 @@
     </script>
   </head>
   <body>
-    <div class="container">
+    <div class="content">
       <header>
         <h3>Rafael's Chat</h3>
         <hr />
         <div class="row">
-            <div class="col col-sm-12 col-md-4">
-              <label for="user" class="">Informe o usuário</label>
-              <input type="text" name="user" id="user" class="form-control" required />
-            </div>
+          <div class="col col-sm-12 col-md-4">
+            <label for="user" class="">Informe o usuário</label>
+            <input
+              type="text"
+              name="user"
+              id="user"
+              class="form-control"
+              required
+            />
+          </div>
         </div>
       </header>
 
@@ -106,11 +121,7 @@
             required
           ></textarea>
 
-          <button
-            class="btn btn-success w-100 "
-            type="submit"
-            onclick="send()"
-          >
+          <button class="btn btn-success w-100 mt-3" type="submit" onclick="send()">
             Enviar
           </button>
         </div>
